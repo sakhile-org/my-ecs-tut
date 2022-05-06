@@ -26,7 +26,7 @@ ENV AWS_DEFAULT_REGION $AWS_DEFAULT_REGION
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py ./app
-WORKDIR /app
+COPY . .
+
 
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app", "--workers=5"]
